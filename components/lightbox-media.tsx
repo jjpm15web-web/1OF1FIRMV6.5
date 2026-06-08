@@ -41,7 +41,9 @@ export function LightboxMedia({ type, src, alt = "" }: LightboxMediaProps) {
       <video
         src={playable}
         controls
-        controlsList="nodownload"
+        controlsList="nodownload noplaybackrate noremoteplayback"
+        disablePictureInPicture
+        disableRemotePlayback
         onContextMenu={(e) => e.preventDefault()}
         autoPlay
         playsInline
@@ -83,6 +85,10 @@ export function LightboxThumbnail({ type, src, alt = "", className = "" }: Light
         muted
         playsInline
         preload="metadata"
+        controlsList="nodownload"
+        disablePictureInPicture
+        disableRemotePlayback
+        onContextMenu={(e) => e.preventDefault()}
         className={className}
       />
     )
