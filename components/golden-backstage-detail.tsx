@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from "react"
 import { ArrowLeft, Play, ArrowRight, X, ChevronLeft, ChevronRight } from "lucide-react"
 import HamburgerMenu from "./hamburger-menu"
+import { LightboxThumbnail } from "./lightbox-media"
 import { useBackstageContent, useGalleryMoments } from "@/lib/universe-store"
 
 interface GoldenBackstageDetailProps {
@@ -147,7 +148,8 @@ export default function GoldenBackstageDetail({ onNavigate }: GoldenBackstageDet
           {exclusiveContent.map((video, index) => (
             <div key={video.id} className="group cursor-pointer" onClick={() => openLightbox(index, false)}>
               <div className="relative aspect-square overflow-hidden rounded-lg border border-amber-500/20">
-                <img
+                <LightboxThumbnail
+                  type={video.type}
                   src={video.image}
                   alt={video.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
