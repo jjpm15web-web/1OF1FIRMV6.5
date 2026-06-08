@@ -150,7 +150,7 @@ export default function GoldenBackstageDetail({ onNavigate }: GoldenBackstageDet
               <div className="relative aspect-square overflow-hidden rounded-lg border border-amber-500/20">
                 <LightboxThumbnail
                   type={video.type}
-                  src={video.image}
+                  src={video.type === "video" ? (video.videoUrl || video.image) : video.image}
                   alt={video.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
