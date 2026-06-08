@@ -3,7 +3,6 @@
 import { useState } from "react"
 import { ArrowLeft, ArrowRight, X, ChevronLeft, ChevronRight } from "lucide-react"
 import HamburgerMenu from "./hamburger-menu"
-import ImageWithSkeleton from "./image-with-skeleton"
 import { useCamps } from "@/lib/universe-store"
 
 interface CampDetailProps {
@@ -93,7 +92,7 @@ export default function CampDetail({ onNavigate }: CampDetailProps) {
             </p>
           </div>
           <div className="relative">
-            <ImageWithSkeleton
+            <img 
               src="https://f005.backblazeb2.com/file/b21of1firm/background/CAMPhome.jpg"
               alt="Camp"
               className="w-full h-auto object-cover"
@@ -159,7 +158,7 @@ export default function CampDetail({ onNavigate }: CampDetailProps) {
               className="w-1/4 md:w-1/4 aspect-square flex-shrink-0 cursor-pointer"
               onClick={() => openLightbox(index)}
             >
-              <ImageWithSkeleton
+              <img
                 src={img}
                 alt={`Camp gallery ${index + 1}`}
                 className="w-full h-full object-cover opacity-60 hover:opacity-100 transition-opacity duration-300"

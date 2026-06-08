@@ -3,7 +3,6 @@
 import { ChevronRight, Calendar, MapPin, Menu as MenuIcon } from "lucide-react"
 import { useState } from "react"
 import HamburgerMenu from "./hamburger-menu"
-import ImageWithSkeleton from "./image-with-skeleton"
 import { useSignatureEvents } from "@/lib/events-store"
 
 interface EventCardProps {
@@ -51,10 +50,9 @@ function EventCard({
       <div className="flex flex-col sm:flex-row">
         {/* Event Image */}
         <div className="relative w-full sm:w-36 md:w-48 h-32 sm:h-auto flex-shrink-0 overflow-hidden">
-          <ImageWithSkeleton
-            src={image}
-            alt={title}
-            className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          <div
+            className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+            style={{ backgroundImage: `url(${image})` }}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/50 md:bg-gradient-to-t md:from-black/50 md:to-transparent" />
           {/* SOLD OUT Badge */}

@@ -3,7 +3,6 @@
 import { useState } from "react"
 import { ArrowLeft, Menu as MenuIcon } from "lucide-react"
 import HamburgerMenu from "./hamburger-menu"
-import ImageWithSkeleton from "./image-with-skeleton"
 import { useDripProducts, type DripProduct } from "@/lib/universe-store"
 
 interface DripDetailProps {
@@ -17,8 +16,8 @@ function ProductCard({ product, onClick }: { product: DripProduct; onClick: () =
       className="group text-left w-full"
     >
       <div className="relative aspect-square overflow-hidden bg-neutral-900 mb-2 md:mb-4">
-        <ImageWithSkeleton
-          src={product.mainImage}
+        <img 
+          src={product.mainImage} 
           alt={product.name}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
@@ -54,12 +53,12 @@ function ProductDetail({ product, onBack }: { product: DripProduct; onBack: () =
       </button>
 
       {/* Main Product Image */}
-        <div className="relative w-full aspect-[3/4] md:aspect-[16/9] max-h-[70vh]">
-          <ImageWithSkeleton
-            src={product.mainImage}
-            alt={product.name}
-            className="w-full h-full object-cover object-top"
-          />
+      <div className="relative w-full aspect-[3/4] md:aspect-[16/9] max-h-[70vh]">
+        <img 
+          src={product.mainImage} 
+          alt={product.name}
+          className="w-full h-full object-cover object-top"
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
         {product.soldOut && (
           <div className="absolute top-4 right-4 bg-red-600 text-white text-sm md:text-lg font-bold tracking-wider px-4 md:px-6 py-1.5 md:py-2 rotate-[-6deg]">
@@ -129,8 +128,8 @@ function ProductDetail({ product, onBack }: { product: DripProduct; onBack: () =
           <div className="grid grid-cols-2 gap-3 mt-8">
             {product.galleryImages.map((img, index) => (
               <div key={index} className="aspect-square overflow-hidden bg-neutral-900">
-                <ImageWithSkeleton
-                  src={img}
+                <img 
+                  src={img} 
                   alt={`${product.name} view ${index + 1}`}
                   className="w-full h-full object-cover"
                 />
