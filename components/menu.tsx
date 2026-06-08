@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { ChevronDown, ChevronRight, ChevronUp, Menu as MenuIcon, DoorOpen } from "lucide-react"
 import HamburgerMenu from "./hamburger-menu"
+import ImageWithSkeleton from "./image-with-skeleton"
 import TicketSelectorModal from "./ticket-selector-modal"
 
 interface MenuSectionProps {
@@ -28,7 +29,7 @@ function MenuSection({ title, subtitle, backgroundImage, hasGoldBorder = true, i
       
       {/* Right side - Image taking 50% */}
       <div className="absolute inset-y-0 right-0 w-1/2">
-        <img 
+        <ImageWithSkeleton
           src={backgroundImage}
           alt={title}
           className="w-full h-full object-contain object-center"
@@ -163,7 +164,7 @@ export default function Menu({ onNavigate }: MenuProps) {
       {/* Hero Section */}
       <section className="relative h-[50svh] sm:h-[55svh] md:min-h-screen flex flex-col items-center justify-center bg-black">
         <div className="absolute inset-0">
-          <img 
+          <ImageWithSkeleton
             src="https://f005.backblazeb2.com/file/b21of1firm/background/home.jpg"
             alt="1 OF 1 FIRM Background"
             className="w-full h-full object-cover object-center"

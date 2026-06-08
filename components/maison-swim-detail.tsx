@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from "react"
 import { ArrowLeft, ArrowRight, X, ChevronLeft, ChevronRight } from "lucide-react"
 import HamburgerMenu from "./hamburger-menu"
+import ImageWithSkeleton from "./image-with-skeleton"
 import { useMaisonProducts, type MaisonProduct } from "@/lib/universe-store"
 
 interface MaisonSwimDetailProps {
@@ -117,7 +118,7 @@ export default function MaisonSwimDetail({ onNavigate }: MaisonSwimDetailProps) 
             </p>
           </div>
           <div className="relative">
-            <img 
+            <ImageWithSkeleton
               src="https://f005.backblazeb2.com/file/b21of1firm/background/MAISONhome.jpg"
               alt="Maison Swim"
               className="w-full h-auto object-cover"
@@ -172,8 +173,8 @@ export default function MaisonSwimDetail({ onNavigate }: MaisonSwimDetailProps) 
                 className="aspect-square bg-zinc-800 relative overflow-hidden cursor-pointer"
                 onClick={() => openLightbox(index)}
               >
-                <img 
-                  src={product.image} 
+                <ImageWithSkeleton
+                  src={product.image}
                   alt={product.name}
                   className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                 />

@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from "react"
 import { ArrowLeft, ArrowRight, Menu as MenuIcon, X, ChevronLeft, ChevronRight } from "lucide-react"
 import HamburgerMenu from "./hamburger-menu"
+import ImageWithSkeleton from "./image-with-skeleton"
 import { useVisionArtworks, type VisionArtwork } from "@/lib/universe-store"
 
 interface VisionGalleryDetailProps {
@@ -44,12 +45,12 @@ function ArtworkCard({ artwork, onImageClick }: { artwork: VisionArtwork; onImag
         className="relative bg-neutral-900 p-2 md:p-4 mb-2 md:mb-4 cursor-pointer"
         onClick={onImageClick}
       >
-        <div className="relative aspect-[4/3] overflow-hidden border-2 md:border-4 border-neutral-700 shadow-2xl">
-          <img 
-            src={artwork.image} 
-            alt={artwork.name}
-            className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
-          />
+              <div className="relative aspect-[4/3] overflow-hidden border-2 md:border-4 border-neutral-700 shadow-2xl">
+                <ImageWithSkeleton
+                  src={artwork.image}
+                  alt={artwork.name}
+                  className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
+                />
           {!artwork.available && (
             <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
               <span className="bg-red-600 text-white text-xs md:text-base font-bold tracking-wider px-3 md:px-5 py-1 md:py-1.5 rotate-[-12deg]">SOLD OUT</span>
@@ -189,13 +190,13 @@ export default function VisionGalleryDetail({ onNavigate }: VisionGalleryDetailP
               FINEST EXPRESSION.
             </p>
           </div>
-          <div className="relative flex justify-end">
-            <img 
-              src="https://f005.backblazeb2.com/file/b21of1firm/background/VISIONhome.jpg"
-              alt="Vision Gallery"
-              className="w-full md:w-full h-auto object-cover"
-            />
-          </div>
+            <div className="relative flex justify-end">
+              <ImageWithSkeleton
+                src="https://f005.backblazeb2.com/file/b21of1firm/background/VISIONhome.jpg"
+                alt="Vision Gallery"
+                className="w-full md:w-full h-auto object-cover"
+              />
+            </div>
         </div>
       </section>
 
