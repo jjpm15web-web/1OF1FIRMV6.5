@@ -319,7 +319,12 @@ export default function GoldenBackstageDetail({ onNavigate }: GoldenBackstageDet
                     <video
                       src={playableSrc}
                       controls
+                      controlsList="nodownload noplaybackrate noremoteplayback"
+                      disablePictureInPicture
+                      disableRemotePlayback
+                      onContextMenu={(e) => e.preventDefault()}
                       autoPlay
+                      playsInline
                       poster={isVideoFile(current?.src) ? undefined : current?.src}
                       className="max-w-full max-h-[75vh] object-contain rounded-lg"
                     />
